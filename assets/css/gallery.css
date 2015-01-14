@@ -1,0 +1,20 @@
+.crop {
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+}
+.crop img {
+    height: auto;
+    width: 400px;
+}
+.row {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+.row li {
+    list-style: none;
+    margin-bottom: 25px;
+}
+.row li img {
+    cursor: pointer;
+}
