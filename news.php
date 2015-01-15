@@ -1,5 +1,7 @@
 <?php
 
+$news_query = "SELECT * FROM news";
+
 ?>
 <!doctype html>
 <html>

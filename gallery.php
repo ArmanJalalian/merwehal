@@ -1,5 +1,7 @@
 <?php
 
+$photo_query = "SELECT * FROM photo";
+
 ?>
 <!doctype html>
 <html>

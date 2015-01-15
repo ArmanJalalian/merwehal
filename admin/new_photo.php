@@ -4,6 +4,8 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
+$photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$title', '$data')";
+
 ?>
 <!doctype html>
 <html>
