@@ -44,41 +44,41 @@ if(isset($_POST['submit']))
 ?>
 <!doctype html>
 <html>
-<head>
-    <title></title>
-    <meta name = "description" content = ""/>
-    <meta charset = "utf-8"/>
-    <link rel= "stylesheet" href= "../assets/css/bootstrap.min.css"/>
-    <link rel= "stylesheet" href= "../assets/css/login.css"/>
-</head>
-<body>
+    <head>
+        <title></title>
+        <meta name = "description" content = ""/>
+        <meta charset = "utf-8"/>
+        <link rel= "stylesheet" href= "../assets/css/bootstrap.min.css"/>
+        <link rel= "stylesheet" href= "../assets/css/login.css"/>
+    </head>
+    <body>
 
-<div class="container">
-        <form action="<?php print $_SERVER['PHP_SELF']; ?>" class="form-login" method="post">
-            <h2>Sign in</h2>
-            <div class="form-group">
-                <label for="Username" class="sr-only">Username</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php echo $username; ?>"/>
+        <div class="container">
+            <form action="<?php print $_SERVER['PHP_SELF']; ?>" class="form-login" method="post">
+                <h2>Sign in</h2>
+                <div class="form-group">
+                    <label for="Username" class="sr-only">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php echo $username; ?>"/>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="Password" class="sr-only">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $password; ?>"/>
+                <div class="form-group">
+                    <label for="Password" class="sr-only">Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $password; ?>"/>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-10">
-                    <input type="submit" class="btn btn-default" name="submit" value="Login"/>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="submit" class="btn btn-default" name="submit" value="Login"/>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    </body>
 </html>
 
         

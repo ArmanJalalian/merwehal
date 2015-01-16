@@ -4,7 +4,25 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
-$photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$title', '$data')";
+if(isset($_POST['submit']))
+{
+    $photo_title = $_POST['Title'];
+    $photo_data = $_FILES['Data']['name'];
+    $photo_tmp = $_FILES['Data']['tmp_name'];
+    $data_destination = '../assets/images/';
+
+    $move_data = move_uploaded_file($photo_tmp, $data_destination.$photo_data);
+    $photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$photo_title', '$photo_data')";
+
+    if($photo_query != mysqli_query($db, $photo_query))
+    {
+        echo mysqli_error($db);
+    }
+    else
+    {
+        echo "De foto is goed geupload";
+    }
+}
 
 ?>
 <!doctype html>
@@ -31,9 +49,15 @@ $photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$title', '$
         <div class="col-md-8">
             <form class="form-horizontal" role="form" method="post" action="new_photo.php" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="Image" class="col-sm-2 control-label">Foto</label>
+                    <label for="Title" class="col-sm-2 control-label">Titel</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" id="Image" name="Image" placeholder="Foto"/>
+                        <input type="text" class="form-control" id="Title" name="Title" placeholder="Titel"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Data" class="col-sm-2 control-label">Foto</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="Data" name="Data" placeholder="Foto"/>
                     </div>
                 </div>
                 <div class="form-group">

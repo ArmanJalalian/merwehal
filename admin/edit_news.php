@@ -4,31 +4,7 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
-if(isset($_GET['id']))
-{
-    $id = $_GET['id'];
-    $edit_query = "SELECT * FROM news WHERE news_id = '$id'";
-    $edit_result = $db->query($edit_query);
-
-    $edit_news = [];
-
-    while($row = mysqli_fetch_array($edit_result))
-    {
-        $news_id = $row['news_id'];
-        $news_title = $row['news_title'];
-        $news_author = $row['news_author'];
-        $news_subject = $row['news_subject'];
-        $news_message = $row['news_message'];
-
-        $edit_news = array(
-            'news_id' => $news_id,
-            'news_title' => $news_title,
-            'news_author' => $news_author,
-            'news_subject' => $news_subject,
-            'news_message' => $news_message
-        );
-    }
-}
+include("../assets/includes/get_news.php");
 
 if(isset($_POST['submit']))
 {

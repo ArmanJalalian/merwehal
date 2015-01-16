@@ -1,6 +1,8 @@
 <?php
 
-$photo_query = "SELECT * FROM photo";
+include("assets/settings/config.php");
+
+include("assets/includes/photos.php");
 
 ?>
 <!doctype html>
@@ -26,33 +28,12 @@ $photo_query = "SELECT * FROM photo";
 
     <div class="container">
         <ul class="row">
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <a data-toggle="modal" href="#myModal"> <img src="assets/images/Screenshot%20(1).png"/> </a>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
-            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
-                <img src="assets/images/Screenshot%20(1).png"/>
-            </li>
+            <?php foreach($photos as $item): ?>
+                <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
+                    <p><?php echo $item['photo_title']; ?></p>
+                    <a data-toggle="modal" href="#myModal"> <img src="assets/images/<?php print $item['photo_data']; ?>"/> </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 
