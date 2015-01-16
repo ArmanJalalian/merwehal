@@ -36,6 +36,7 @@ include("../assets/includes/news.php");
                     <th>Auteur</th>
                     <th>Onderwerp</th>
                     <th>Bericht</th>
+                    <th>Tag</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +47,7 @@ include("../assets/includes/news.php");
                     <td><?php echo $item['news_author']; ?></td>
                     <td><?php echo $item['news_subject']; ?></td>
                     <td><?php echo $item['news_message']; ?></td>
+                    <td><?php echo $item['news_tag']; ?></td>
                     <td><a href="delete_news.php?id=<?php echo $item['news_id']; ?>">Verwijder</a></td>
                     <td><a href="edit_news.php?id=<?php echo $item['news_id']; ?>">Verander</a></td>
                 </tr>

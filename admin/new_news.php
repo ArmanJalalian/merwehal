@@ -4,14 +4,17 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
+include("../assets/includes/get_tags.php");
+
 if(isset($_POST['submit']))
 {
     $title = ($_POST['Title']);
     $author = ($_POST['Author']);
     $message = ($_POST['Message']);
     $subject = ($_POST['Subject']);
+    $tag = ($_POST['Tags']);
 
-    $news_query = "INSERT INTO news (news_title, news_author, news_subject, news_message) VALUES ('$title', '$author', '$subject', '$message')";
+    $news_query = "INSERT INTO news (news_title, news_author, news_subject, news_message, tags_tag_id) VALUES ('$title', '$author', '$subject', '$message', '$tag')";
 
     if($news_query != mysqli_query($db, $news_query))
     {
@@ -69,6 +72,16 @@ if(isset($_POST['submit']))
                     <label for="Message" class="col-sm-2 control-label">Bericht</label>
                     <div class="col-sm-10">
                         <textarea class="form-control" rows="4" name="Message" id="Message"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Tags" class="col-sm-2 control-label">Tag</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="Tags" name="Tags">
+                            <?php foreach($tags as $item): ?>
+                                <option value="<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

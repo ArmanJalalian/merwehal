@@ -30,9 +30,9 @@ include("assets/includes/news.php");
             <?php foreach($news as $item): ?>
             <div class="col-md-4">
                 <h2><?php echo $item['news_title']; ?></h2>
-                <h3><?php echo $item['news_author']; ?></h3>
-                <h4><?php echo $item['news_subject']; ?></h4>
-                <p><?php echo $item['news_message'] ?></p>
+                <p><?php echo $item['news_author']; ?></p>
+                <p><?php echo $item['news_subject']; ?></p>
+                <p><?php echo $item['news_tag'] ?></p>
                 <a href="news_info.php?id=<?php echo $item['news_id']; ?>" class="btn btn-default">Lees verder</a>
             </div>
             <?php endforeach; ?>

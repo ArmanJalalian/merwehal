@@ -36,7 +36,8 @@ if(isset($_POST['submit']))
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
+    echo $_POST['username'];
+        echo $_POST['password'];
         echo "Gebruikersnaam en/of wachtwoord komen niet overeen!";
     }
 }
