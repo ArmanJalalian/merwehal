@@ -33,7 +33,8 @@ include("../assets/includes/photos.php");
             <?php foreach($photos as $item): ?>
                 <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4 crop">
                     <p><?php echo $item['photo_title']; ?></p>
-                    <img src="../assets/images/<?php print $item['photo_data']; ?>"/>
+                    <a href="delete_photo.php?id=<?php echo $item['photo_id']; ?>" class="btn btn-default">Verwijder</a>
+                    <img src="../assets/images/<?php echo $item['photo_data']; ?>"/>
                 </li>
             <?php endforeach; ?>
         </ul>
