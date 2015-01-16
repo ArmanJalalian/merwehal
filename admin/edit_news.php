@@ -6,6 +6,8 @@ include("../assets/settings/login_session.php");
 
 include("../assets/includes/get_news.php");
 
+include("../assets/includes/get_tags.php");
+
 if(isset($_POST['submit']))
 {
     $news_id = $_POST['id'];
@@ -13,13 +15,15 @@ if(isset($_POST['submit']))
     $news_author = $_POST['Author'];
     $news_subject = $_POST['Subject'];
     $news_message = $_POST['Message'];
+    $news_tag = $_POST['Tags'];
 
-    $edit_query = $db->prepare("UPDATE news SET news_title = ?, news_author = ?, news_subject = ?, news_message = ? WHERE news_id = ?");
-    $edit_query->bind_param('ssssi',
+    $edit_query = $db->prepare("UPDATE news SET news_title = ?, news_author = ?, news_subject = ?, news_message = ?, tags_tag_id = ? WHERE news_id = ?");
+    $edit_query->bind_param('ssssii',
         $news_title,
         $news_author,
         $news_subject,
         $news_message,
+        $news_tag,
         $news_id);
     $edit_query->execute();
 
@@ -80,6 +84,16 @@ if(isset($_POST['submit']))
                     <label for="Message" class="col-sm-2 control-label">Bericht</label>
                     <div class="col-sm-10">
                         <textarea class="form-control" rows="4" name="Message" id="Message"><?php echo $news_message; ?></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Tags" class="col-sm-2 control-label">Tag</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="Tags" name="Tags">
+                            <?php foreach($tags as $item): ?>
+                                <option value="<?php echo $item['tag_id']; ?>"><?php echo $item['tag_name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
