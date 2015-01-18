@@ -22,12 +22,12 @@ if(isset($_POST['submit']))
     }
     else
     {
-        $mailto = $email;
+        $mailTo = $email;
         $mailSubject = "Bowling Reservering";
         $mailMessage = "U heeft succesvol bij ons geboekt";
         $mailHeaders = "Verzonden door: Bowlingbaan de Merwehal";
 
-        mail($mailto, $mailSubject, $mailMessage, $mailHeaders);
+        mail($mailTo, $mailSubject, $mailMessage, $mailHeaders);
 
         echo "Succes!";
     }

@@ -1,5 +1,51 @@
 <?php
 
+$name = null;
+$mail = null;
+$subject = null;
+$message = null;
+
+$nameError = "";
+$mailError = "";
+$mailError2 = "";
+$subjectError = "";
+$messageError = "";
+
+if(isset($_POST['submit']))
+{
+    if(empty($_POST['Name']))
+    {
+        $nameError = 'Je moet een naam invullen!';
+    }
+    else
+    {
+        $name = $_POST['Name'];
+    }
+
+    if(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL))
+    {
+        $mail = $_POST['Email'];
+    }
+
+    if(empty($_POST['Subject']))
+    {
+        $subjectError = 'Je moet een onderwerp invullen!';
+    }
+    else
+    {
+        $subject = $_POST['Subject'];
+    }
+
+    if(empty($_POST['Message']))
+    {
+        $messageError = 'Je moet wel iets invullen!';
+    }
+    else
+    {
+        $message = $_POST['Message'];
+    }
+}
+
 ?>
 <!doctype html>
 <html>
@@ -29,25 +75,32 @@
                 <div class="form-group">
                     <label for="Name" class="col-sm-2 control-label">Naam</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Naam"/>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Naam" value="<?php echo $name; ?>"/>
+                        <span><?php echo $nameError; ?></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email"/>
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" value="<?php echo $mail; ?>"/>
+                        <span><?php echo $mailError; ?></span>
+                        <span><?php echo $mailError2; ?></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Subject" class="col-sm-2 control-label">Onderwerp</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="Subject" name="Subject" placeholder="Onderwerp"/>
+                        <input type="text" class="form-control" id="Subject" name="Subject" placeholder="Onderwerp" value="<?php echo $subject; ?>"/>
+                        <span><?php echo $subjectError; ?></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Message" class="col-sm-2 control-label">Bericht</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="4" name="Message" id="Message"></textarea>
+                        <span><?php echo $messageError; ?></span>
+                        <textarea class="form-control" rows="4" name="Message" id="Message">
+                            <?php echo $message; ?>
+                        </textarea>
                     </div>
                 </div>
                 <div class="form-group">
