@@ -30,9 +30,10 @@
                     <a href="admin/login.php">Login</a>
                 </li>
             </ul>
-            <form role="search" class="navbar-form navbar-right">
+            <form role="search" action="search.php" method="post" class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" placeholder="Zoek..." class="form-control">
+                    <input type="text" name="search" placeholder="Zoek..." class="form-control">
+                    <input type="submit" name="submit" class="btn btn-default" value="Zoek">
                 </div>
             </form>
         </div>
