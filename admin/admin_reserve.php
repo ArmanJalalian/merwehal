@@ -9,8 +9,8 @@ $result = $db->query($reservation_query);
 
 $reservation = [];
 
-while($row = mysqli_fetch_array($result))
-{
+while($row = mysqli_fetch_array($result)) {
+
     $reservation_id = $row['reservation_id'];
     $reservation_name = $row['reservation_name'];
     $reservation_email = $row['reservation_email'];

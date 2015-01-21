@@ -8,8 +8,8 @@
 
 include("../assets/settings/config.php");
 
-if(isset($_GET['id']))
-{
+if(isset($_GET['id'])) {
+
     $delete_id = $_GET['id'];
 
     $select_photo = "SELECT photo_data FROM photo WHERE photo_id = '$delete_id'";
@@ -20,8 +20,8 @@ if(isset($_GET['id']))
 
     $data = [];
 
-    while($row = mysqli_fetch_array($data_result))
-    {
+    while($row = mysqli_fetch_array($data_result)) {
+
         $photo_data = $row['photo_data'];
 
         $data = array(
@@ -31,13 +31,14 @@ if(isset($_GET['id']))
 
     unlink("../assets/images/".$data['photo_data']);
 
-   if(mysqli_query($db, $delete_query))
-   {
+   if(mysqli_query($db, $delete_query)) {
+
        header("Location: admin_gallery.php");
-   }
-   else
-   {
+
+   } else {
+
        echo "Het verwijderen is niet goed gegaan! Probeer opnieuw!";
+
    }
 }
 

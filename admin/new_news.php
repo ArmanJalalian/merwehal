@@ -6,8 +6,8 @@ include("../assets/settings/login_session.php");
 
 include("../assets/includes/get_tags.php");
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $title = ($_POST['Title']);
     $author = ($_POST['Author']);
     $message = ($_POST['Message']);
@@ -16,13 +16,14 @@ if(isset($_POST['submit']))
 
     $news_query = "INSERT INTO news (news_title, news_author, news_subject, news_message, tags_tag_id) VALUES ('$title', '$author', '$subject', '$message', '$tag')";
 
-    if($news_query != mysqli_query($db, $news_query))
-    {
+    if($news_query != mysqli_query($db, $news_query)) {
+
         echo mysqli_error($db);
-    }
-    else
-    {
+
+    } else {
+
         echo "Succes";
+
     }
 }
 

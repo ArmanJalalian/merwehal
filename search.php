@@ -2,8 +2,8 @@
 
 include("assets/settings/config.php");
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $search = $_POST['search'];
 
     $search_query = "SELECT n.news_id, n.news_title, n.news_author, n.news_subject
@@ -17,10 +17,10 @@ if(isset($_POST['submit']))
 
     $results = [];
 
-    if($search_result)
-    {
-        while($row = mysqli_fetch_array($search_result))
-        {
+    if($search_result) {
+
+        while($row = mysqli_fetch_array($search_result)) {
+
             $news_id = $row['news_id'];
 
             $results[] = array(
@@ -44,18 +44,18 @@ if(isset($_POST['submit']))
 
     <?php include("assets/includes/navbar.php") ?>
 
-    <?php foreach($results as $item): ?>
-
-        <p><?php echo $item['news_id']; ?></p>
-
-    <?php endforeach; ?>
-
     <div class="jumbotron">
         <div class="container">
             <h1>Zoek</h1>
             <p>Hieronder staan uw zoekresultaten:</p>
         </div>
     </div>
+
+    <?php foreach($results as $item): ?>
+
+        <p><?php echo $item['news_id']; ?></p>
+
+    <?php endforeach; ?>
     
     </body>
 </html>

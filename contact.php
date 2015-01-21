@@ -11,38 +11,42 @@ $mailError2 = "";
 $subjectError = "";
 $messageError = "";
 
-if(isset($_POST['submit']))
-{
-    if(empty($_POST['Name']))
-    {
+if(isset($_POST['submit'])) {
+
+    if(empty($_POST['Name'])) {
+
         $nameError = 'Je moet een naam invullen!';
-    }
-    else
-    {
+
+    } else {
+
         $name = $_POST['Name'];
+
     }
 
-    if(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL))
-    {
+    if(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
+
         $mail = $_POST['Email'];
+
     }
 
-    if(empty($_POST['Subject']))
-    {
+    if(empty($_POST['Subject'])) {
+
         $subjectError = 'Je moet een onderwerp invullen!';
-    }
-    else
-    {
+
+    } else {
+
         $subject = $_POST['Subject'];
+
     }
 
-    if(empty($_POST['Message']))
-    {
+    if(empty($_POST['Message'])) {
+
         $messageError = 'Je moet wel iets invullen!';
-    }
-    else
-    {
+
+    } else {
+
         $message = $_POST['Message'];
+        
     }
 }
 

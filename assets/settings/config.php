@@ -11,9 +11,10 @@ $user = "root";
 $pass = "";
 $database = "bowling";
 
-if($db = mysqli_connect($host, $user, $pass, $database))
-{
+if($db = mysqli_connect($host, $user, $pass, $database)) {
+
     echo mysqli_error($db);
+
 }
 
 ?>

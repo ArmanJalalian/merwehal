@@ -2,8 +2,8 @@
 
 include("assets/settings/config.php");
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $name = ($_POST['Name']);
     $email = ($_POST['Email']);
     $date = ($_POST['Date']);
@@ -16,12 +16,12 @@ if(isset($_POST['submit']))
     $reservation_query = "INSERT INTO reservation (reservation_name, reservation_email, reservation_date, reservation_time, reservation_lanes, reservation_playtime, reservation_kids, reservation_adults)
                           VALUES ('$name', '$email', '$date', '$time', '$lanes', '$playTime', '$kids', '$adults')";
 
-    if($reservation_query != mysqli_query($db, $reservation_query))
-    {
+    if($reservation_query != mysqli_query($db, $reservation_query)) {
+
         echo mysqli_error($db);
-    }
-    else
-    {
+
+    } else {
+
         $mailTo = $email;
         $mailSubject = "Bowling Reservering";
         $mailMessage = "U heeft succesvol bij ons geboekt";

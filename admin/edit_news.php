@@ -8,8 +8,8 @@ include("../assets/includes/get_news.php");
 
 include("../assets/includes/get_tags.php");
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $news_id = $_POST['id'];
     $news_title = $_POST['Title'];
     $news_author = $_POST['Author'];
@@ -27,13 +27,14 @@ if(isset($_POST['submit']))
         $news_id);
     $edit_query->execute();
 
-    if($edit_query != true)
-    {
+    if($edit_query != true) {
+
         echo mysqli_error($db);
-    }
-    else
-    {
+
+    } else {
+
         echo "U heeft het nieuwsbericht succesvol veranderd!";
+
     }
 }
 

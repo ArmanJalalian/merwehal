@@ -4,8 +4,8 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $photo_title = $_POST['Title'];
     $photo_data = $_FILES['Data']['name'];
     $photo_tmp = $_FILES['Data']['tmp_name'];
@@ -14,13 +14,14 @@ if(isset($_POST['submit']))
     $move_data = move_uploaded_file($photo_tmp, $data_destination.$photo_data);
     $photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$photo_title', '$photo_data')";
 
-    if($photo_query != mysqli_query($db, $photo_query))
-    {
+    if($photo_query != mysqli_query($db, $photo_query)) {
+
         echo mysqli_error($db);
-    }
-    else
-    {
+
+    } else {
+
         echo "De foto is goed geupload";
+
     }
 }
 

@@ -12,8 +12,8 @@ $news_result = $db->query($news_query);
 
 $news = [];
 
-while($row = mysqli_fetch_array($news_result))
-{
+while($row = mysqli_fetch_array($news_result)) {
+
     $news_id = $row['news_id'];
     $news_title = $row['news_title'];
     $news_author = $row['news_author'];

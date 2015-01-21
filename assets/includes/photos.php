@@ -11,8 +11,8 @@ $photo_result = $db->query($photo_query);
 
 $photos = [];
 
-while($row = mysqli_fetch_array($photo_result))
-{
+while($row = mysqli_fetch_array($photo_result)) {
+
     $photo_id = $row['photo_id'];
     $photo_title = $row['photo_title'];
     $photo_data = $row['photo_data'];

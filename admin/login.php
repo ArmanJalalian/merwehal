@@ -5,8 +5,8 @@ include("../assets/settings/config.php");
 $username = null;
 $password = null;
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])) {
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -18,22 +18,22 @@ if(isset($_POST['submit']))
 
     $count = 0;
 
-    while($row = mysqli_fetch_array($result))
-    {
+    while($row = mysqli_fetch_array($result)) {
+
         $count++;
+
     }
 
-    if($count === 1)
-    {
+    if($count === 1) {
+
         session_start();
         $_SESSION['loggedIn'] = true;
         $_SESSION['username'] = $_POST['username'];
 
         header('Location: admin.php');
         exit;
-    }
-    else
-    {
+    } else {
+
         $username = $_POST['username'];
         $password = $_POST['password'];
 

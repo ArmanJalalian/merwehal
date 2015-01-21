@@ -6,16 +6,16 @@
  * Time: 11:54
  */
 
-if(isset($_GET['id']))
-{
+if(isset($_GET['id'])) {
+
     $id = $_GET['id'];
     $edit_query = "SELECT * FROM news WHERE news_id = '$id'";
     $edit_result = $db->query($edit_query);
 
     $news_info = [];
 
-    while($row = mysqli_fetch_array($edit_result))
-    {
+    while($row = mysqli_fetch_array($edit_result)) {
+
         $news_id = $row['news_id'];
         $news_title = $row['news_title'];
         $news_author = $row['news_author'];

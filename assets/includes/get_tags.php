@@ -11,8 +11,8 @@ $tag_result = $db->query($tag_query);
 
 $tags = [];
 
-while($row = mysqli_fetch_array($tag_result))
-{
+while($row = mysqli_fetch_array($tag_result)) {
+
     $tag_id = $row['tag_id'];
     $tag_name = $row['tag_name'];
 
