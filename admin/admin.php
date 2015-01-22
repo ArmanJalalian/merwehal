@@ -8,7 +8,7 @@ include("../assets/settings/login_session.php");
 <!doctype html>
 <html>
     <head>
-        <title></title>
+        <title>Bowlingbaan de Merwehal: Admin</title>
         <meta name = "description" content = ""/>
         <meta charset = "utf-8"/>
         <link rel= "stylesheet" href= "../assets/css/bootstrap.min.css"/>

@@ -10,7 +10,7 @@ include("../assets/includes/news.php");
 <!doctype html>
 <html>
     <head>
-        <title></title>
+        <title>Bowlingbaan de Merwehal: Admin</title>
         <meta name = "description" content = ""/>
         <meta charset = "utf-8"/>
         <link rel= "stylesheet" href= "../assets/css/bootstrap.min.css"/>
