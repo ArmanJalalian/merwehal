@@ -6,8 +6,7 @@ if(isset($_POST['submit'])) {
 
     $search = $_POST['search'];
 
-    $search_query = "SELECT n.news_id, n.news_title, n.news_author, n.news_subject
-                     FROM news n JOIN tags t
+    $search_query = "SELECT * FROM news n JOIN tags t
                      WHERE n.news_title LIKE '%".$search."%' OR
                      n.news_author LIKE '%".$search."%' OR
                      n.news_subject LIKE '%".$search."%' OR

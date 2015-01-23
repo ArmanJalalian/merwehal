@@ -32,7 +32,7 @@ include("assets/includes/news.php");
                 <h2><?php echo $item['news_title']; ?></h2>
                 <p><?php echo $item['news_author']; ?></p>
                 <p><?php echo $item['news_subject']; ?></p>
-                <p><?php echo $item['news_tag'] ?></p>
+                <a href="tag.php?id=<?php echo $item['tag_id']; ?>"><?php echo $item['news_tag'] ?></a>
                 <a href="news_info.php?id=<?php echo $item['news_id']; ?>" class="btn btn-default">Lees verder</a>
             </div>
             <?php endforeach; ?>

@@ -19,6 +19,7 @@ while($row = mysqli_fetch_array($news_result)) {
     $news_author = $row['news_author'];
     $news_subject = $row['news_subject'];
     $news_message = $row['news_message'];
+    $tag_id = $row['tag_id'];
     $news_tag = $row['tag_name'];
 
     $news[] = array(
@@ -27,6 +28,7 @@ while($row = mysqli_fetch_array($news_result)) {
         'news_author' => $news_author,
         'news_subject' => $news_subject,
         'news_message' => $news_message,
+        'tag_id' => $tag_id,
         'news_tag' => $news_tag
     );
 }
