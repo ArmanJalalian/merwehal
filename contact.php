@@ -48,6 +48,8 @@ if(isset($_POST['submit'])) {
         $message = $_POST['Message'];
 
     }
+
+    mail($mail, $subject, $message, $name);
 }
 
 ?>
