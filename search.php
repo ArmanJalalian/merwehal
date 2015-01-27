@@ -7,9 +7,8 @@ if(isset($_POST['submit'])) {
     $search = $_POST['search'];
 
     $search_query = "SELECT * FROM news n JOIN tags t
-                     WHERE n.news_title LIKE '%".$search."%' OR
-                     n.news_author LIKE '%".$search."%' OR
-                     n.news_subject LIKE '%".$search."%' OR
+                     WHERE t.tag_id = n.tags_tag_id AND
+                     n.news_title LIKE '%".$search."%' OR
                      t.tag_name LIKE '%".$search."%'";
 
     $search_result = $db->query($search_query);
@@ -21,9 +20,15 @@ if(isset($_POST['submit'])) {
         while($row = mysqli_fetch_array($search_result)) {
 
             $news_id = $row['news_id'];
+            $news_title = $row['news_title'];
+            $tags_id = $row['tag_id'];
+            $tags_name = $row['tag_name'];
 
             $results[] = array(
-                'news_id' => $news_id
+                'news_id' => $news_id,
+                'news_title' => $news_title,
+                'tags_id' => $tags_id,
+                'tags_name' => $tags_name
             );
         }
     }
@@ -50,11 +55,28 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 
-    <?php foreach($results as $item): ?>
+    <div class="container">
 
-        <p><?php echo $item['news_id']; ?></p>
+        <?php if(isset($results) && count($results) > 0): ?>
 
-    <?php endforeach; ?>
+            <?php foreach($results as $item): ?>
+
+                <p><?php echo $item['news_title']; ?></p>
+                <a href="news_info.php?id=<?php echo $item['news_id']; ?>" class="btn btn-default">Lees verder...</a>
+
+            <?php endforeach; ?>
+
+        <?php elseif(isset($results) && count($results) == 0): ?>
+
+            <p>Er is niks gevonden, probeer het opnieuw!</p>
+
+        <?php else: ?>
+
+            <p>Je moet wel een zoek opdracht opgeven!</p>
+
+        <?php endif ?>
+
+    </div>
     
     </body>
 </html>
