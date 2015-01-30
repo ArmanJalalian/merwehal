@@ -7,10 +7,10 @@
  */
 
 //credentials for the database
-$host = "sql.cmi.hro.nl";
-$user = "0878531";
-$pass = "62541e30";
-$database = "0878531";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$database = "bowling";
 
 //connect to the database
 if($db = mysqli_connect($host, $user, $pass, $database)) {
