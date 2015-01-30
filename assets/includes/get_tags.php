@@ -6,9 +6,11 @@
  * Time: 15:58
  */
 
+//get tags
 $tag_query = "SELECT * FROM tags";
 $tag_result = $db->query($tag_query);
 
+//tag array
 $tags = [];
 
 while($row = mysqli_fetch_array($tag_result)) {

@@ -2,8 +2,10 @@
 
 include("assets/settings/config.php");
 
+//check if user clicked submit button
 if(isset($_POST['submit'])) {
 
+    //get all values from form
     $name = ($_POST['Name']);
     $email = ($_POST['Email']);
     $date = ($_POST['Date']);
@@ -13,6 +15,7 @@ if(isset($_POST['submit'])) {
     $kids = ($_POST['Kids']);
     $adults = ($_POST['Adults']);
 
+    //query to post the data to the correct table
     $reservation_query = "INSERT INTO reservation (reservation_name, reservation_email, reservation_date, reservation_time, reservation_lanes, reservation_playtime, reservation_kids, reservation_adults)
                           VALUES ('$name', '$email', '$date', '$time', '$lanes', '$playTime', '$kids', '$adults')";
 

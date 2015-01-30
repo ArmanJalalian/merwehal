@@ -2,10 +2,13 @@
 
 include("assets/settings/config.php");
 
+//check if user clicked submit button
 if(isset($_POST['submit'])) {
 
+    //get value from form
     $search = $_POST['search'];
 
+    //query to look for items that contain the search word
     $search_query = "SELECT * FROM news n JOIN tags t
                      WHERE t.tag_id = n.tags_tag_id AND
                      n.news_title LIKE '%".$search."%' OR
@@ -13,6 +16,7 @@ if(isset($_POST['submit'])) {
 
     $search_result = $db->query($search_query);
 
+    //results array
     $results = [];
 
     if($search_result) {

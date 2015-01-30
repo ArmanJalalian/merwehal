@@ -8,6 +8,7 @@
 
 include("../assets/settings/config.php");
 
+//kill inlogg session
 session_destroy();
 
 header('Location: login.php');

@@ -6,9 +6,11 @@
  * Time: 11:37
  */
 
+//query to get all photos
 $photo_query = "SELECT * FROM photo";
 $photo_result = $db->query($photo_query);
 
+//photos array
 $photos = [];
 
 while($row = mysqli_fetch_array($photo_result)) {

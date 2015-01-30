@@ -6,14 +6,17 @@ include("../assets/settings/login_session.php");
 
 include("../assets/includes/get_tags.php");
 
+//check if user submitted the form
 if(isset($_POST['submit'])) {
 
+    //get all data from the form
     $title = ($_POST['Title']);
     $author = ($_POST['Author']);
     $message = ($_POST['Message']);
     $subject = ($_POST['Subject']);
     $tag = ($_POST['Tags']);
 
+    //query to post news to the correct database table
     $news_query = "INSERT INTO news (news_title, news_author, news_subject, news_message, tags_tag_id) VALUES ('$title', '$author', '$subject', '$message', '$tag')";
 
     if($news_query != mysqli_query($db, $news_query)) {

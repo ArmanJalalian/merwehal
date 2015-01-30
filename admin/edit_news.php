@@ -8,8 +8,10 @@ include("../assets/includes/get_news.php");
 
 include("../assets/includes/get_tags.php");
 
+//check if the user clicked the submit button
 if(isset($_POST['submit'])) {
 
+    //get all values from the form
     $news_id = $_POST['id'];
     $news_title = $_POST['Title'];
     $news_author = $_POST['Author'];
@@ -17,6 +19,7 @@ if(isset($_POST['submit'])) {
     $news_message = $_POST['Message'];
     $news_tag = $_POST['Tags'];
 
+    //query to edit the news item by first emptying them all
     $edit_query = $db->prepare("UPDATE news SET news_title = ?, news_author = ?, news_subject = ?, news_message = ?, tags_tag_id = ? WHERE news_id = ?");
     $edit_query->bind_param('ssssii',
         $news_title,

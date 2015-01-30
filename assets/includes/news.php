@@ -6,10 +6,12 @@
  * Time: 11:50
  */
 
+//query to get all news items
 $news_query = "SELECT * FROM news JOIN tags WHERE tags_tag_id = tag_id";
 
 $news_result = $db->query($news_query);
 
+//news array
 $news = [];
 
 while($row = mysqli_fetch_array($news_result)) {

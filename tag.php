@@ -2,15 +2,19 @@
 
 include("assets/settings/config.php");
 
+//check if there is an id in the url
 if(isset($_GET['id'])) {
 
+    //get the id from the url
     $tag_id = $_GET['id'];
 
+    //get info where the id corresponds with the tag_id you wanted.
     $tag_query = "SELECT n.news_id, n.news_title, t.tag_name FROM news n JOIN tags t
                   WHERE n.tags_tag_id = t.tag_id AND t.tag_id = '$tag_id'";
 
     $tag_result = $db->query($tag_query);
 
+    //news items array
     $news_items = [];
 
     while($row = mysqli_fetch_array($tag_result)) {

@@ -6,13 +6,18 @@
  * Time: 11:54
  */
 
+//get the ID from the url
 if(isset($_GET['id'])) {
 
     $id = $_GET['id'];
+
+    //get the info from corresponding news item
     $edit_query = "SELECT * FROM news WHERE news_id = '$id'";
     $edit_result = $db->query($edit_query);
 
+    //news array
     $news_info = [];
+
 
     while($row = mysqli_fetch_array($edit_result)) {
 

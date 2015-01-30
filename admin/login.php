@@ -5,14 +5,18 @@ include("../assets/settings/config.php");
 $username = null;
 $password = null;
 
+//check if user clicked the log in button
 if(isset($_POST['submit'])) {
 
+    //get the values that the user typed in the form
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //encrypt the username and password to md5 format
     $encrypt_name = md5($username);
     $encrypt_password = md5($password);
 
+    //select login and check if it corresponds
     $login_query = "SELECT * FROM admin WHERE username = '$encrypt_name' AND password = '$encrypt_password'";
     $result = $db->query($login_query);
 

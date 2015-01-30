@@ -4,11 +4,14 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
+//query to get all reservations out of the database
 $reservation_query = "SELECT * FROM reservation WHERE reservation_date > NOW()";
 $result = $db->query($reservation_query);
 
+//reservation array
 $reservation = [];
 
+//get all rows from the table
 while($row = mysqli_fetch_array($result)) {
 
     $reservation_id = $row['reservation_id'];

@@ -11,8 +11,10 @@ $mailError2 = "";
 $subjectError = "";
 $messageError = "";
 
+//check if user clicked submit button
 if(isset($_POST['submit'])) {
 
+    //check if name space is empty
     if(empty($_POST['Name'])) {
 
         $nameError = 'Je moet een naam invullen!';
@@ -23,12 +25,14 @@ if(isset($_POST['submit'])) {
 
     }
 
+    //check if the email adress is from the correct format
     if(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
 
         $mail = $_POST['Email'];
 
     }
 
+    //check if subject space is empty
     if(empty($_POST['Subject'])) {
 
         $subjectError = 'Je moet een onderwerp invullen!';
@@ -39,6 +43,7 @@ if(isset($_POST['submit'])) {
 
     }
 
+    //check if message space is empty
     if(empty($_POST['Message'])) {
 
         $messageError = 'Je moet wel iets invullen!';

@@ -4,14 +4,19 @@ include("../assets/settings/config.php");
 
 include("../assets/settings/login_session.php");
 
+//check if user submitted the form
 if(isset($_POST['submit'])) {
 
+    //get all data form the form
     $photo_title = $_POST['Title'];
     $photo_data = $_FILES['Data']['name'];
     $photo_tmp = $_FILES['Data']['tmp_name'];
+    //destination for the photo
     $data_destination = '../assets/images/';
 
+    //move photo to correct folder and give it a name
     $move_data = move_uploaded_file($photo_tmp, $data_destination.$photo_data);
+    //query to insert photo data in the right table
     $photo_query = "INSERT INTO photo (photo_title, photo_data) VALUES ('$photo_title', '$photo_data')";
 
     if($photo_query != mysqli_query($db, $photo_query)) {
