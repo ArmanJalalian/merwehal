@@ -8,6 +8,7 @@
 
 session_start();
 
+//check if the session still exists
 if(!isset($_SESSION['username'])) {
 
     header('Location: login.php');
